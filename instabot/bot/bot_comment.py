@@ -13,8 +13,9 @@ from tqdm import tqdm
 
 
 def comment(self, media_id, comment_text):
-    if self.is_commented(media_id):
-        return True
+    # Comment this to enable more than one comment at the same post
+    # if self.is_commented(media_id):
+    #     return True
     if not self.reached_limit('comments'):
         self.delay('comment')
         if self.api.comment(media_id, comment_text):
